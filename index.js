@@ -5,69 +5,53 @@ const mysql = require('mysql');
 const cors = require('cors');
 // const postgre = require('pg');
 const { Pool } = require('pg')
-// const pgp = require('pg-promise')
+const PORT = process.env.PORT || 3001;
 
-// const cn = {
-//   host:'localhost',
-//   port: 5432,
-//   database: 'df',
-//   user: 'postgres',
-//   password: 'Junior00'
-// }
-// const db = pgp(cn);
-
-// db.one('select * from df_test').then(result=>{
-//   console.log('hasil')
-// })
-
-
-// didalam scripts
-// "backend": "nodemon ./index.js",
- 
 // parse application/json
 app.use(bodyParser.json());
 
 // user cors()
 app.use(cors());
 
- 
-// //create database connection
-// const conn = mysql.createConnection({
-//   host: 'localhost',
-//   user: 'root',
-//   password: '',
-//   database: 'employees'
-// });
+//ssl on
+const conn = new Pool({
+  user:'postgres',
+  // host:'10.170.84.255',
+  host:'localhost' ,
+  database:'econim',
+  password: 'itadmin',
+  port: 5433
+})
 
-
-// //create database connection
+// Production //ssl off
+// create database connection Heroku Postgres
 // const conn = new Pool({
 //   user:'postgres',
 //   host:'localhost',
-//   database:'df',
+//   database:'to-kf-conim',
 //   password: 'Junior00',
-//   port: 5432
+//   port: 5432,
+//   native: true,
+//   ssl: {
+//     rejectUnauthorized: false
+//   }
 // })
 
-// Production
-// create database connection Heroku Postgres
-const conn = new Pool({
-  user:'rrzfiejogdkdwx',
-  host:'ec2-54-83-137-206.compute-1.amazonaws.com',
-  database:'d1q7dno61bc5l7',
-  password: '704d4554e66350d5e620380bd9389defaebb92e23e8aba0045141e863455262d',
-  port: 5432,
-  native: true,
-  ssl: {
-    rejectUnauthorized: false
-  }
-})
 
 //connect to database
 conn.connect((err) =>{
   if(err) throw err;
   console.log('Mysql Connecteds...');
 });
+
+app.get('/', (req, res) => {
+  res.send('Connectedss! '+PORT)
+});
+
+app.get('/helloworld', (req, res) => {
+  res.send('Hello World!')
+});
+
 
 //api query
 app.post('/api/query',(req, res) => {
@@ -81,6 +65,10 @@ app.post('/api/query',(req, res) => {
   });
  
 //Server listening
-app.listen(3001,() =>{
-  console.log('Server started on port 3001...');
+// app.listen(3001,() =>{
+//   console.log('Server started on port 3001...');
+// });
+
+app.listen(PORT,() =>{
+  console.log('Server started on NEW port... '+PORT);
 });
