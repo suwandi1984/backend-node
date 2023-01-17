@@ -15,11 +15,11 @@ app.use(cors());
 
 //ssl on
 const conn = new Pool({
-  user:'gistpjbegtrztp',
+  user:'weufskczjfwcfj',
   // host:'10.170.84.255',
-  host:'ec2-52-21-136-176.compute-1.amazonaws.com' ,
-  database:'d4lnof30uc148f',
-  password: '9e30041de25ca0f7874a1870f652cd9ce8d9d0da2ade2d5dba5c0d0b91cf41b2',
+  host:'ec2-34-192-210-139.compute-1.amazonaws.com' ,
+  database:'d14v82rrht9jdo',
+  password: '131ed1bb2508cfa80ed86e1392af78d928c0bb02f2546d9d5ab52e66f4ea2d2e',
   port: 5432
 })
 
