@@ -15,13 +15,22 @@ app.use(cors());
 
 //ssl on
 const conn = new Pool({
-  user:'postgres',
+  user:'gistpjbegtrztp',
   // host:'10.170.84.255',
-  host:'localhost' ,
-  database:'econim',
-  password: 'itadmin',
-  port: 5433
+  host:'ec2-52-21-136-176.compute-1.amazonaws.com' ,
+  database:'d4lnof30uc148f',
+  password: '9e30041de25ca0f7874a1870f652cd9ce8d9d0da2ade2d5dba5c0d0b91cf41b2',
+  port: 5432
 })
+
+// const conn = new Pool({
+//   user:'postgres',
+//   // host:'10.170.84.255',
+//   host:'localhost' ,
+//   database:'econim',
+//   password: 'itadmin',
+//   port: 5433
+// })
 
 // Production //ssl off
 // create database connection Heroku Postgres
