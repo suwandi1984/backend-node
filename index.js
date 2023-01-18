@@ -14,14 +14,14 @@ app.use(bodyParser.json());
 app.use(cors());
 
 //ssl on
-const conn = new Pool({
-  user:'weufskczjfwcfj',
-  // host:'10.170.84.255',
-  host:'ec2-34-192-210-139.compute-1.amazonaws.com' ,
-  database:'d14v82rrht9jdo',
-  password: '131ed1bb2508cfa80ed86e1392af78d928c0bb02f2546d9d5ab52e66f4ea2d2e',
-  port: 5432
-})
+//const conn = new Pool({
+//  user:'weufskczjfwcfj',
+//  // host:'10.170.84.255',
+//  host:'ec2-34-192-210-139.compute-1.amazonaws.com' ,
+//  database:'d14v82rrht9jdo',
+//  password: '131ed1bb2508cfa80ed86e1392af78d928c0bb02f2546d9d5ab52e66f4ea2d2e',
+//  port: 5432
+//})
 
 // const conn = new Pool({
 //   user:'postgres',
@@ -34,17 +34,17 @@ const conn = new Pool({
 
 // Production //ssl off
 // create database connection Heroku Postgres
-// const conn = new Pool({
-//   user:'postgres',
-//   host:'localhost',
-//   database:'to-kf-conim',
-//   password: 'Junior00',
-//   port: 5432,
-//   native: true,
-//   ssl: {
-//     rejectUnauthorized: false
-//   }
-// })
+ const conn = new Pool({
+   user:'postgres',
+   host:'localhost',
+   database:'to-kf-conim',
+   password: 'Junior00',
+   port: 5432,
+   native: true,
+   ssl: {
+     rejectUnauthorized: false
+   }
+ })
 
 
 //connect to database
