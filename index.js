@@ -41,10 +41,7 @@ app.use(cors());
    password: '131ed1bb2508cfa80ed86e1392af78d928c0bb02f2546d9d5ab52e66f4ea2d2e',
    port: 5432,
    native: true,
-   ssl: {
-     rejectUnauthorized: false,
-     mode: require
-   }
+   ssl: true
  })
 
 
