@@ -42,7 +42,8 @@ app.use(cors());
    port: 5432,
    native: true,
    ssl: {
-     rejectUnauthorized: false
+     rejectUnauthorized: false,
+     mode: require
    }
  })
 
